@@ -7,17 +7,19 @@ use App\Country;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\Session;
+use App\User;
 
 class TripInternationalController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
-        //
+        $trips = User::with('TripInternational')->where('id', Auth::user()->id)->first();
+
+        // return $trips;
+        // $country = Country::where('name', $trips->lokasi_destinasi)->first();
+
+        return view('dashboard.user.Trip.International.index', compact('trips'));
     }
 
     /**

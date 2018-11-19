@@ -15,7 +15,7 @@
             <div class="col-sm-12">
                 <ul class="list-group" style="list-style-type: none;>
                     <li class="text-dark">
-                        <a href="{{ route('trip.profil', $trip->user->username ) }}" class="list-group-item text-dark">
+                        <a href="{{ route('trip.profil',[ $trip->id, $trip->user->username]) }}" class="list-group-item text-dark">
 
                         <div class="row">
                             <div class="col-sm-1">

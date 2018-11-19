@@ -9,6 +9,7 @@
                     <a href="" class="list-group-item">Home</a>
                     <a href="{{ route('trip.create') }}" class="list-group-item">Post Trip</a>
                     <a href="{{ route('profil.index') }}" class="list-group-item">Profil</a>
+                     <a href="{{ route('trip.index') }} " class="list-group-item">Trips</a>
                     <a href="{{ route('penitip.index', Auth::user()->id) }}" class="list-group-item">Penitip</a>
                     <a href="{{ route('titipan.index', Auth::user()->id) }} " class="list-group-item">Titipan</a>
 
@@ -22,5 +23,4 @@
 
 
     </div>
-
 @endsection

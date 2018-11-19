@@ -36,7 +36,7 @@ class User extends Authenticatable
 
     public function TripInternational()
     {
-        return $this->hasMany('App\TripInternational');
+        return $this->hasMany(TripInternational::class);
     }
 
     public function TitipBarang()

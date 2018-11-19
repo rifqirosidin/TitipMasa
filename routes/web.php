@@ -3,7 +3,7 @@
 Route::get('/', 'HomepageController@index');
 Route::get('/trip/{lokasi_destinasi}', 'HomepageController@list_trip')->name('list_trip');
 
-Route::get('/trip/profil/{nama}', 'HomepageController@tripProfil')->name('trip.profil');
+Route::get('/trip/profil/{id}/{username}', 'HomepageController@tripProfil')->name('trip.profil');
 
 Route::get('/trip/titip-barang/{id}', [
 	'uses' => 'TitipBarangController@create',

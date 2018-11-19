@@ -67,9 +67,11 @@ class TitipBarangController extends Controller
 
            $user = User::where('id', $trip->user_id)->first();
 
-       
+           session()->flush('success', 'Titipan berhasil dibuat');
 
-       return redirect('/trip/profil/'.$user->username);
+       
+        return redirect()->route('trip.profil', [$user->id, $user->username]);
+       
     }
 
     public function show($id)

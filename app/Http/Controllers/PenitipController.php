@@ -13,7 +13,6 @@ class PenitipController extends Controller
         $penitips = TripInternational::with('TitipBarang')->where('user_id' , $id)->first();
 
         // return $penitips;
-
         return view('dashboard.user.penitip.penitip', compact('penitips'));
 
 

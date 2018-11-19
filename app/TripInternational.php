@@ -17,12 +17,12 @@ class TripInternational extends Model
 
     public function country()
     {
-        return $this->belongsTo('App\Country', 'lokasi_destinasi');
+        return $this->belongsTo('App\Country', 'lokasi_destinasi', 'name');
     }
 
     public function TitipBarang()
     {
-        return $this->hasMany('App\TitipBarang', 'TripInternational_id');
+        return $this->hasMany('App\TitipBarang', 'TripInternational_id', 'id');
     }
 
 
