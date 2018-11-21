@@ -11,7 +11,7 @@
 
         </div>
         <hr>
-        <form action="{{ route('profil.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('profil.update', Auth::id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PATCH')
             <div class="row">

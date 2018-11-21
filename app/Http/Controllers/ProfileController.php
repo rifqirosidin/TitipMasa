@@ -60,7 +60,7 @@ class ProfileController extends Controller
         ]);
 
 
-        return view('dashboard.user.profile.create');
+        return view('dashboard.user.profile.index', compact('user'));
 
     }
 

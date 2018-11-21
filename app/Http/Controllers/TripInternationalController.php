@@ -56,7 +56,7 @@ class TripInternationalController extends Controller
             'deskripsi' => $request->deskripsi
         ]);
 
-        Session::flash('success', 'Trip created Successfully');
+        Session::flash('success', 'Trip Berhasil Dibuat');
 
         return redirect()->back();
     }

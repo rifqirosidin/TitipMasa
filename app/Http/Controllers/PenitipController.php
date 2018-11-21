@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\TitipBarang;
 use App\TripInternational;
 class PenitipController extends Controller
@@ -17,6 +18,38 @@ class PenitipController extends Controller
 
 
     }
+
+    public function  UpdateStatus($user_id, $id)
+    {
+         $status = TitipBarang::where([ 'user_id' => $user_id, 'id' => $id]);
+         
+         
+         $status->update([
+            'status' => 'diterima'
+         ]);
+
+
+         session()->flush('success', 'Barang Berhasil di update');
+
+         return redirect()->back();
+
+         // return redirect()->route('trip.profil', $user->id, $user->username);
+
+    }
+
+    public function TolakBarang($user_id, $id)
+    {
+        $status = TitipBarang::where([ 'user_id' => $user_id, 'id' => $id]);
+                  
+         $status->update([
+            'status' => 'ditolak'
+         ]);
+
+        $status->delete();
+
+        return redirect()->back();
+    }
+
 
     
     public function create()

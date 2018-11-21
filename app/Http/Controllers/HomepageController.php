@@ -38,10 +38,10 @@ class HomepageController extends Controller
     {
         $user = User::where('username', $username)->first();
         $trip = TripInternational::where(['id' => $id, 'user_id' => $user->id])->first();
-        $titips = TitipBarang::where('TripInternational_id', $id)->get();
+        $titips = TitipBarang::where('TripInternational_id', $id)->paginate(4);
         $country = Country::where('name', $trip->lokasi_destinasi)->first();
         
-        return view('homepage.trip.profil_trip', compact('trip', 'user', 'titips'));
+        return view('homepage.trip.profil_trip', compact('trip', 'user', 'titips', 'country'));
 
     }
 

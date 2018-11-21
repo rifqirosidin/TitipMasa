@@ -22,7 +22,6 @@ class TitipBarangController extends Controller
 
 
 
-
     public function create($id)
     {
         $trip = TripInternational::where('id', $id)->first();

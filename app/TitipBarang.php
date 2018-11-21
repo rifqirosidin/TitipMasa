@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TitipBarang extends Model
 {
     protected $fillable = [
-    	'harga','user_id','gambar_barang', 'TripInternational_id','gambar_barang',
+    	'harga','user_id','status','gambar_barang', 'TripInternational_id','gambar_barang',
     	'nama_barang', 'berat_barang', 'pajak', 'deskripsi_barang'
     ];
 

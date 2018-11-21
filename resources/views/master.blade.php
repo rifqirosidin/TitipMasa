@@ -19,10 +19,11 @@
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
 
 <body>
+    <div class="content">
     @yield('content')
 
     @stack('footer')
-
+</div>
 </body>
 
 <!-- Bootstrap core JavaScript -->

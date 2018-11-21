@@ -8,7 +8,7 @@
     <div class="container" style="margin-top: 60px">
         @include('include.success')
         <div class="fb-profile">
-            <img align="left" class="fb-image-lg" src="{{ asset('storage/internasional/' .$trip->country->code . '.jpg') }}" height="280" alt="Profile image example"/>
+            <img align="left" class="fb-image-lg" src="{{ asset('storage/internasional/' .$country->code . '.jpg') }}" height="280" alt="Profile image example"/>
             <img align="left" class="fb-image-profile thumbnail" height="200" width="10px" src="{{ asset('storage/'. $trip->user->foto) }}" alt="Profile image example"/>
         </div>
         <h2>{{ $trip->user->name }}</h2>
@@ -58,6 +58,13 @@
                       <th scope="col">Gambar Barang</th>
                       <th scope="col">Nama Barang</th>
                       <th scope="col">Harga</th>
+                      <th scope="col">Status</th>
+                      @if(Auth::check())
+                      @if($trip->user->id == Auth::user()->id)                      
+                       <th scope="col">Aksi</th>                      
+                      @endif
+                      @endif
+                     
                     </tr>
                   </thead>
                   <tbody>
@@ -67,6 +74,19 @@
                       <td><img src="{{ asset('storage/'. $titip->gambar_barang) }}" height="50" width="80"></td>
                       <td>{{ $titip->nama_barang }}</td>
                       <td>{{ $titip->harga }}</td>
+                      <td>{{ $titip->status }}</td>
+                      <td>
+
+                @if(Auth::check())
+                    @if($trip->user->id == Auth::user()->id)
+                        @if($titip->status != 'diterima')
+                                                
+                        <a href="{{ route('barang.diterima', [$titip->user->id,  $titip->id]) }}" class="btn btn-primary" name="terima" style="margin-right: 10px" 
+                        >Terima</a>
+                        @endif
+                        <a href="{{ route('barang.ditolak', [$titip->user->id,  $titip->id]) }}" class="btn btn-danger" name="tolak">Tolak</a></td>
+                     @endif
+                @endif
                     </tr>
                     @empty
                     <tr>
@@ -77,6 +97,9 @@
         </table>
 
             </div>
+        </div>
+        <div class="row float-right">
+            <div class="col-sm-12 ">{!! $titips->links() !!} </div>
         </div>
     </div>
 

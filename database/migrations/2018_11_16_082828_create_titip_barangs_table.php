@@ -22,6 +22,7 @@ class CreateTitipBarangsTable extends Migration
             $table->string('berat_barang');
              $table->string('harga');
             $table->integer('pajak');
+            
             $table->text('deskripsi_barang');
 
             $table->foreign('TripInternational_id')->references('id')->on('trip_internationals');

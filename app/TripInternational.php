@@ -17,7 +17,7 @@ class TripInternational extends Model
 
     public function country()
     {
-        return $this->belongsTo('App\Country', 'lokasi_destinasi', 'name');
+        return $this->belongsTo('App\Country', 'lokasi_destinasi');
     }
 
     public function TitipBarang()
