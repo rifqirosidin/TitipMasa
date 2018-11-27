@@ -15,6 +15,11 @@ Route::get('/trip/titip-barang/{id}', [
 
 Route::middleware(['auth'])->group(function (){
 
+    //transaksi route
+     Route::get('/titip/pembayaran/{id}', 'TitipBarangController@pembayaran')->name('titip.pembayaran');
+     Route::get('/titip/konfirmasi/pembayaran/{id}', 'TitipBarangController@konfirmasi')->name('konfirmasi');
+     Route::post('/titip/kirim/bukti-pembayaran/{id}', 'TransaksiController@BuktiPembayaran')->name('bukti.pembayaran');
+
     Route::prefix('dashboard')->group(function (){
         Route::get('/home', 'HomepageController@dashboard')->name('dashboard.home');
         Route::resource('profile', 'ProfileController');
@@ -26,6 +31,7 @@ Route::middleware(['auth'])->group(function (){
         Route::get('/penitip/{id}', 'PenitipController@index')->name('penitip.index');
         Route::get('/penitip/diterima/{user_id}/{id}', 'PenitipController@UpdateStatus')->name('barang.diterima');
         Route::get('/penitip/ditolak/{user_id}/{id}', 'PenitipController@TolakBarang')->name('barang.ditolak');
+
 
 
     });

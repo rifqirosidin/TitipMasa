@@ -31,6 +31,8 @@ class TitipBarangController extends Controller
          return view('homepage.trip.titip.form_barang', compact('trip'));
     }
 
+
+
     public function store(Request $request)
     {
         
@@ -39,9 +41,10 @@ class TitipBarangController extends Controller
        $validate = $this->validate($request, [
 
             
-            'gambar_barang' => 'required',
+            'gambar_barang' => 'required|mimes:jpg,jpeg,png',
             'nama_barang' => 'required',
             'berat_barang' => 'required|numeric',
+            'harga_barang' => 'required|numeric',
             'pajak' => 'required',
             'deskripsi_barang' => 'required',
 
@@ -66,10 +69,10 @@ class TitipBarangController extends Controller
 
            $user = User::where('id', $trip->user_id)->first();
 
-           session()->flush('success', 'Titipan berhasil dibuat');
+           session()->flash('success', 'Titipan berhasil dibuat');
 
        
-        return redirect()->route('trip.profil', [$user->id, $user->username]);
+        return redirect()->route('trip.profil', [ $user->id, $user->username ]);
        
     }
 
@@ -94,4 +97,25 @@ class TitipBarangController extends Controller
     {
         //
     }
+
+    public function pembayaran($id)
+    {
+        $user = User::where('id', $id)->first();
+
+        return view('transaksi.pembayaran', compact('user'));
+    }
+
+    public function konfirmasi($id)
+    {
+        $barangs = TitipBarang::where('user_id', $id)->get();
+       // return $barangs;
+        $pajak = $barangs->sum('pajak');
+        
+        $total = $barangs->sum('harga');
+       
+
+        return view('transaksi.konfirmasi', compact('barangs', 'total' ,'pajak'));
+    }
+
+    
 }

@@ -40,6 +40,15 @@
         <div class="col-sm-5">
 
                 <div class="form-group">
+                    <label for="nama">Jumlah</label>
+                    <input type="number" min="1" class="form-control" name="jumlah" id="jumlah" placeholder="Jumlah Barang">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+        <div class="col-sm-5">
+
+                <div class="form-group">
                     <label for="nama">Harga</label>
                     <input type="text" class="form-control" name="harga_barang" id="harga_barang" placeholder="Harga Barang">
                 </div>

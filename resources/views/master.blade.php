@@ -17,6 +17,7 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('frontend/homepage/css/modern-business.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('font/css/fontawesome.css') }}">
 
 <body>
     <div class="content">

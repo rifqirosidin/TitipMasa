@@ -29,7 +29,7 @@ class PenitipController extends Controller
          ]);
 
 
-         session()->flush('success', 'Barang Berhasil di update');
+         session()->flash('success', 'Barang Berhasil di update');
 
          return redirect()->back();
 
@@ -46,7 +46,7 @@ class PenitipController extends Controller
          ]);
 
         $status->delete();
-
+         session()->flash('success', 'Barang Berhasil di tolak');
         return redirect()->back();
     }
 

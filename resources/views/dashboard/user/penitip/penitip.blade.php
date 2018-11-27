@@ -16,6 +16,7 @@
     </tr>
   </thead>
   <tbody>
+    @if($penitips->TitipBarang ?? '')
         @foreach($penitips->TitipBarang as $item)
         <tr>
         	<td>{{ $loop->iteration }}</td>
@@ -24,7 +25,13 @@
           <td>{{ $item->harga }}</td>
            
         </tr>
+       
    @endforeach
+    @else
+        <tr>
+          <td colspan="3" class="text-center">Tidak ada Titipan</td>
+        </tr>
+   @endif
   </tbody>
 </table>
 		</div>
