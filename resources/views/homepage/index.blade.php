@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Situs Jasa Titip</title>
+    <title>Titip Masa</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('frontend/homepage/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -34,6 +34,9 @@
     <h3 class="my-5" align="center">Trip Internasional</h3>
 
     <div class="row">
+        @include('homepage.tap')
+    </div>
+  <!--   <div class="row">
         @foreach($countries as $country)
         <div class="col-lg-4 col-sm-6 portfolio-item text-center">
 
@@ -48,11 +51,11 @@
             </div>
         </div>
         @endforeach
-    </div>
+    </div> -->
 
-<div class="center">
+<!-- <div class="center">
     {{ $countries->onEachSide(1)->links() }}
-</div>
+</div> -->
 
 </div>
 <!-- /.container -->

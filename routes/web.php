@@ -1,9 +1,9 @@
 <?php
 
 Route::get('/', 'HomepageController@index');
-Route::get('/masuk', function(){
-    return view('masuk');
-});
+Route::get('/tentang', function(){
+    return view('homepage.about');
+})->name('about');
 Route::get('/trip/{lokasi_destinasi}', 'HomepageController@list_trip')->name('list_trip');
 
 Route::get('/trip/profil/{id}/{username}', 'HomepageController@tripProfil')->name('trip.profil');

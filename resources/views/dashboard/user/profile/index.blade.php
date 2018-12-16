@@ -4,7 +4,7 @@
 
     <div class="container">
        
-        <div class="row" style="margin-top: 40px">
+        <div class="row" style="margin-top: 20px">
             <div class="col">
                 <a href="{{ route('profil.edit', $user->id) }}" class="btn btn-primary float-right">Edit Profil</a>
                 <h2>Profil Saya</h2>
@@ -15,21 +15,27 @@
         <hr>
 
         <div class="row">
-            <div class="col-sm-4">
-                <img src="{{ asset('storage/'. $user->foto) }}" height="100" alt="Foto Profil" class="rounded">
-                <p>{{ $user->name }}</p>
-                <p>{{ $user->email }}</p>
+            <div class="col-sm-3">
+                <img src="{{ asset('storage/'. $user->foto) }}" height="100" width="80px" alt="Foto Profil" class="rounded">
+
+
             </div>
             <div class="col-sm-6">
                 <div class="row">
-                    <p>username : {{ $user->username }}</p>
+                    <p>Nama <span style="margin-left: 20px">:</span> {{ $user->name }}</p>
                 </div>
                 <div class="row">
-                   <p> No HP:  {{ $user->phone }} </p>
+                    <p> E-mail <span style="margin-left: 20px">:</span> {{ $user->email }}</p>
+                </div>
+                <div class="row">
+                    <p>username :  {{ $user->username }}</p>
+                </div>
+                <div class="row">
+                   <p> No HP<span style="margin-left: 20px">:</span>  {{ $user->phone }} </p>
                 </div>
                 
                 <div class="row">
-                    <p> Alamat:  {{ $user->alamat }} </p>
+                    <p> Alamat <span style="margin-left: 20px">:</span>  {{ $user->alamat }} </p>
                 </div>
             </div>
         </div>

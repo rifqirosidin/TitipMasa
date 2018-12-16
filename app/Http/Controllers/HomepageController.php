@@ -7,14 +7,16 @@ use App\Country;
 use App\TripInternational;
 use App\User;
 use App\TitipBarang;
+use App\Kota;
 
 class HomepageController extends Controller
 {
     public function index()
     {
         $countries = Country::paginate(12);
+          $kotas = Kota::paginate(12);
 
-        return view('homepage.index', compact('countries'));
+        return view('homepage.index', compact('countries', 'kotas'));
     }
 
     public function dashboard()

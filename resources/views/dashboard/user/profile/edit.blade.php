@@ -11,9 +11,9 @@
 
         </div>
         <hr>
-        <form action="{{ route('profil.update', Auth::id) }}" method="POST" enctype="multipart/form-data">
-            @csrf
+        <form action="{{ route('profil.update', Auth::user()->id) }}" method="POST" enctype="multipart/form-data">
             @method('PATCH')
+            @csrf
             <div class="row">
                 <div class="col">
                     <div class="form-group">
@@ -26,7 +26,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label for="foto">Nama Lengkap</label>
-                        <input type="text" class="form-control" id="nama" name="nama" value="{{ $user->name }}">
+                        <input type="text" class="form-control" id="nama" name="name" value="{{ $user->name }}">
                     </div>
                 </div>
             </div>

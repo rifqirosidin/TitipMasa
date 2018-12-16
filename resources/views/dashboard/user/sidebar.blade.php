@@ -3,7 +3,7 @@
     @include('homepage.navbar')
 
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top: 50px">
             <div class="col-sm-3 mb-3 my-xl-5">
                 <div class="list-group">
                     <a href="" class="list-group-item">Home</a>
