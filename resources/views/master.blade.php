@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('font/css/fontawesome.css') }}">
 
 <body>
-    <div class="content">
+    <div class="content" style="margin-top: 20px">
     @yield('content')
 
     @stack('footer')

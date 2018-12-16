@@ -46,16 +46,16 @@ class ProfileController extends Controller
     public function update(Request $request, $user_id)
     {
         $user = User::find(Auth::user()->id);
-        $foto = $request->file('foto')->store('foto');
 
-        
+        if($request->foto) {
+            $user['foto'] = $request->file('foto')->store('foto');
+        }
 
        $user->update([
             'user_id' => Auth::user()->id,
-            'name' => $request->nama,
+            'name' => $request->name,
             'username' => $request->username,            
             'phone' => $request->phone,
-            'foto' => $foto,
             'alamat' => $request->alamat
         ]);
 
